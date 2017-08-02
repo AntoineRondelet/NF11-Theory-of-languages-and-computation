@@ -1,0 +1,105 @@
+// --- gribouillis --- //
+
+ve
+repete 4000
+[
+fcc hasard 7
+av 1 + hasard 5
+td 1 + hasard 5
+]
+
+// --- rosace --- //
+
+ve
+repete 400
+[
+fcc hasard 7
+av 100
+td 50
+]
+
+// --- test loop --- //
+
+ve
+
+repete 100
+[
+av 1.5 * loop
+td 70
+]
+
+// --- test si --- //
+
+donne "a 4
+si :a < 3 [av 50 tg 90 av 50] [av 50 td 90 av 50]
+
+// --- test tantque --- //
+
+donne "a 100
+tantque :a > 0 [ av :a tg 90 donne "a :a - 10]
+
+// -- test booleans --- //
+
+si 1 > 2 [av 100]
+si 1 < 2 [av 20]
+si 1 != 2 [td 60 av 100]
+si 1 <= 1 [tg 90 av 50]
+
+// -- test fonction 1 --- //
+
+//donne "n 100
+POUR petitcarre :n
+donne "cote :n / 2
+repete 4 [ av :cote td 90 ]
+FIN
+tracecarre 100 donne "cote 200
+tracecarre :cote
+
+// -- test fonction 2 --- //
+
+//donne "c 100
+POUR carre :c
+RENDS :c * :c 
+FIN
+av carre (10)
+
+
+// -- test fonction 3 --- //
+
+POUR doublesi :n
+si :n>=100 [rends 2 * :n]
+RENDS :n
+FIN
+av doublesi(100)
+
+// -- test fonction 4 --- //
+
+POUR doublesi :n
+donne "t :n
+si :n >= 100 [donne "t 2 * :n]
+RENDS :t
+FIN
+
+// -- test procedure -- //
+POUR carre :cote
+repete 4 [
+av :cote
+td 90
+]
+FIN
+POUR deuxcarres :cote
+carre :cote
+av :cote/2
+td 45
+carre :cote*0.707
+FIN
+ve
+deuxcarres 150
+
+// -- Recursivite -- //
+POUR cercle :n
+si :n > 2 [av 1 td 1 cercle :n - 1] [av1 td 1]
+FIN
+
+cercle 100
+
